@@ -3,7 +3,7 @@ I want to share my resolution only for portfolio reasons
 The test description can be read in TEST-README.txt file
 I won't share who sent me the test
 
-I did FOUR versions of the test to show performance benchmark comparison:
+I made FOUR versions of the test to show performance benchmark comparison:
 1) non-optimized
 2) optimized only with MAP_OPTIMIZATION
 3) optimized only with ERASE_OPTIMIZATION
