@@ -1,0 +1,4 @@
+#!/bin/bash
+cd build
+./OrderCacheTests ; ./OrderCacheTests_Erase ; ./OrderCacheTests_Map ; ./OrderCacheTests_MapErase
+cd ..

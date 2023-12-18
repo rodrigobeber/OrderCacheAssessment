@@ -1,0 +1,79 @@
+OrderCache - TESTING
+====================
+
+Prerequisites
+-------------
+To compile and run the tests, you will need:
+
+1. A C++ compiler with support for C++17 or later.
+
+2. Google Test library.
+
+
+(Ubuntu/Debian/Linux)
+```
+sudo apt-get install libgtest-dev
+cd /usr/src/gtest
+sudo cmake CMakeLists.txt
+sudo make
+sudo cp *.a /usr/lib
+```
+
+(macOS)
+```
+brew install googletest
+```
+
+Compilation
+-----------
+To compile this application, follow these steps:
+
+1. Open a terminal/command prompt and navigate to the OrderCache directory.
+
+2. Run the following command:
+
+(Ubuntu/Debian/Linux)
+```
+g++ --std=c++17 OrderCacheTests.cpp OrderCache.cpp -o OrderCacheTests -lgtest -lgtest_main -pthread
+```
+
+(macOS)
+```
+g++ --std=c++17 OrderCacheTests.cpp OrderCache.cpp -o OrderCacheTests -I/usr/local/include -L/usr/local/lib -lgtest -lgtest_main -pthread
+```
+
+Running the application
+-----------------------
+To run the OrderCache application, use the following command:
+
+```
+./OrderCacheTests
+```
+
+Exepected output
+----------------
+
+[==========] Running 8 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 8 tests from OrderCacheTest
+[ RUN      ] OrderCacheTest.AddOrder
+[       OK ] OrderCacheTest.AddOrder (0 ms)
+[ RUN      ] OrderCacheTest.GetAllOrders
+[       OK ] OrderCacheTest.GetAllOrders (0 ms)
+[ RUN      ] OrderCacheTest.CancelOrder
+[       OK ] OrderCacheTest.CancelOrder (0 ms)
+[ RUN      ] OrderCacheTest.CancelOrdersForUser
+[       OK ] OrderCacheTest.CancelOrdersForUser (0 ms)
+[ RUN      ] OrderCacheTest.CancelOrdersForSecIdWithMinimumQty
+[       OK ] OrderCacheTest.CancelOrdersForSecIdWithMinimumQty (0 ms)
+[ RUN      ] OrderCacheTest.GetMatchingSizeForSecurityTest1
+[       OK ] OrderCacheTest.GetMatchingSizeForSecurityTest1 (0 ms)
+[ RUN      ] OrderCacheTest.GetMatchingSizeForSecurityTest2
+[       OK ] OrderCacheTest.GetMatchingSizeForSecurityTest2 (0 ms)
+[ RUN      ] OrderCacheTest.GetMatchingSizeForSecurityTest3
+[       OK ] OrderCacheTest.GetMatchingSizeForSecurityTest3 (0 ms)
+[----------] 8 tests from OrderCacheTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 8 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 8 tests.

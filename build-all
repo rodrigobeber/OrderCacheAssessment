@@ -1,0 +1,18 @@
+#!/bin/bash
+
+BUILD_DIR=build
+rm -fr $BUILD_DIR
+mkdir $BUILD_DIR
+
+BASE_BUILD_PERFORMANCE_TESTS="g++ --std=c++17 OrderCachePerformanceTests.cpp OrderCachePerformanceTestsHelpers.cpp MatchingSizeHelpers.cpp OrderCache.cpp"
+$BASE_BUILD_PERFORMANCE_TESTS -o $BUILD_DIR/OrderCachePerformanceTests
+$BASE_BUILD_PERFORMANCE_TESTS -DMAP_OPTIMIZATION -o $BUILD_DIR/OrderCachePerformanceTests_Map
+$BASE_BUILD_PERFORMANCE_TESTS -DERASE_OPTIMIZATION -o $BUILD_DIR/OrderCachePerformanceTests_Erase
+$BASE_BUILD_PERFORMANCE_TESTS -DMAP_OPTIMIZATION -DERASE_OPTIMIZATION -o $BUILD_DIR/OrderCachePerformanceTests_MapErase
+
+BASE_BUILD_CACHE_TESTS="g++ --std=c++17 OrderCacheTests.cpp MatchingSizeHelpers.cpp OrderCache.cpp -lgtest -lgtest_main -pthread"
+$BASE_BUILD_CACHE_TESTS -o $BUILD_DIR/OrderCacheTests
+$BASE_BUILD_CACHE_TESTS -DMAP_OPTIMIZATION -o $BUILD_DIR/OrderCacheTests_Map
+$BASE_BUILD_CACHE_TESTS -DERASE_OPTIMIZATION -o $BUILD_DIR/OrderCacheTests_Erase
+$BASE_BUILD_CACHE_TESTS -DMAP_OPTIMIZATION -DERASE_OPTIMIZATION -o $BUILD_DIR/OrderCacheTests_MapErase
+
